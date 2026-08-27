@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="RF Therapy — Relate & Flourish. A calm, confidential space to connect deeply and grow fully.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css"><title>Book a Session · RF Therapy</title></head><body><div class="announce">A private space for reflection, connection & growth</div>
+<header class="site-header"><div class="wrap"><nav>
+<a class="brand" href="index.html"><img src="assets/rf-mark.png" alt="RF Therapy mark"><div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a>
+<div class="navlinks"><a href="about.html" class="">About</a><a href="sessions.html" class="">Sessions</a><a href="stories.html" class="">Stories</a><a href="resources.html" class="">Resources</a><a href="faq.html" class="">FAQ</a><a href="contact.html" class="">Contact</a></div>
+<a class="nav-cta" href="booking.html">Book a Session</a><button class="menu" onclick="document.getElementById('mobilePanel').classList.toggle('open')" aria-label="Menu">☰</button>
+</nav></div><div class="mobile-panel" id="mobilePanel"><a href="about.html">About</a><a href="sessions.html">Sessions</a><a href="stories.html">Stories</a><a href="resources.html">Resources</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="booking.html"><strong>Book a Session →</strong></a></div></header>
+<main>
+<section class="page-hero"><div class="wrap"><div class="kicker">Book a session</div><h1>Make room for the conversation.</h1><p>Request a preferred date and tell us only what you are comfortable sharing. We will follow up to confirm availability.</p></div></section>
+<section><div class="wrap"><div class="booking"><div><div class="kicker" style="color:#aebdb2">A private beginning</div><h2>Start gently.</h2><p>You can request a session here or begin with a private WhatsApp conversation if that feels easier.</p><a class="btn whatsapp" href="https://wa.me/2348144134768" target="_blank" rel="noopener">Chat on WhatsApp ↗</a><p style="font-size:11px;margin-top:24px">Please do not use this form for emergencies or situations requiring immediate intervention.</p></div>
+<form class="form" onsubmit="event.preventDefault();notify('Your session request has been recorded in this demo. Connect the form to a secure booking backend before launch.');this.reset()">
+<label>Full name<input required name="name" placeholder="Your name"></label><label>Email<input required type="email" name="email" placeholder="you@example.com"></label>
+<label>Phone<input name="phone" placeholder="+234 ..."></label><label>Session type<select name="type"><option>Individual Session</option><option>Relationship Work</option><option>Guidance & Reflection</option></select></label>
+<label>Preferred date<input required type="date" name="date"></label><label>Preferred time<select name="time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
+<label class="full">What would you like support with?<textarea name="message" placeholder="You do not need to share anything you are not ready to share."></textarea></label>
+<div class="full"><button type="submit">Request Session</button><div class="consent">By submitting, you agree that RF Therapy may use the information provided to respond to this request. Connect this form to a secure booking system before collecting live client data.</div></div>
+</form></div></div></section>
+</main><footer class="footer"><div class="wrap footer-grid">
+<div><a class="brand" href="index.html"><img src="assets/rf-mark.png" alt="" style="width:46px;height:46px"><div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a><p style="max-width:340px">A calm, confidential space to connect deeply, understand yourself more fully, and grow with intention.</p></div>
+<div><h3>Explore</h3><p><a href="about.html">About</a></p><p><a href="sessions.html">Sessions</a></p><p><a href="stories.html">Client Stories</a></p><p><a href="resources.html">Resources</a></p></div>
+<div><h3>Begin</h3><p><a href="booking.html">Book a Session</a></p><p><a href="contact.html">Contact</a></p><p><a href="https://wa.me/2348144134768">WhatsApp</a></p><p><a href="https://rftherapy.online">rftherapy.online</a></p></div>
+</div><div class="wrap bottom"><span>© 2026 RF Therapy. All rights reserved.</span><span>Connect Deeply, Grow Fully.</span></div></footer>
+<div class="toast" id="toast"></div>
+<script>
+function notify(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5500)}
+</script></body></html>
