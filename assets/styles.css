@@ -132,17 +132,277 @@ nav{position:relative;display:grid;grid-template-columns:minmax(250px,1fr) auto 
  .brand-copy{font-size:14px}.brand-copy small{font-size:7px}.brand img{width:39px;height:39px}nav{height:66px}.mobile-panel{top:66px}
 }
 
-.consultant-feature{background:var(--paper);overflow:hidden}
-.consultant-feature-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:80px;align-items:center}
-.consultant-photo-wrap{position:relative;min-height:530px;display:flex;align-items:center;justify-content:center}
-.consultant-photo-wrap:before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(199,170,103,.45);border-radius:50%;left:-35px;top:50px}
-.consultant-photo-wrap:after{content:"";position:absolute;width:190px;height:190px;background:var(--olive);border-radius:48% 52% 56% 44%;right:-5px;bottom:20px;opacity:.5}
-.consultant-photo-placeholder{width:min(350px,78%);height:460px;border-radius:180px 180px 35px 35px;background:linear-gradient(145deg,#dce1ce,#a6b184);box-shadow:0 35px 70px rgba(23,56,46,.16);position:relative;z-index:2;display:grid;place-items:center;overflow:hidden;border:8px solid rgba(251,250,245,.75)}
-.consultant-photo-placeholder:before{content:"";position:absolute;inset:18px;border:1px solid rgba(23,56,46,.2);border-radius:160px 160px 25px 25px}
-.consultant-photo-placeholder div{position:relative;text-align:center;color:var(--forest);padding:25px}.consultant-photo-placeholder span{display:block;font-family:var(--serif);font-size:27px;letter-spacing:.06em}.consultant-photo-placeholder small{display:block;font-size:10px;letter-spacing:.08em;color:#66736c;margin-top:8px}
-@media(max-width:900px){.consultant-feature-grid{grid-template-columns:1fr;gap:35px}.consultant-photo-wrap{min-height:470px}.consultant-photo-placeholder{height:430px}}
-@media(max-width:620px){.consultant-photo-wrap{min-height:410px}.consultant-photo-placeholder{height:390px;width:72%}.consultant-photo-wrap:before{width:320px;height:320px;left:-50px;top:35px}}
+/* =========================================================
+   CONSULTANT FEATURE
+   Editorial portrait treatment
+   ========================================================= */
 
+.consultant-feature {
+    background: var(--paper);
+    overflow: hidden;
+}
+
+.consultant-feature-grid {
+    display: grid;
+    grid-template-columns: .92fr 1.08fr;
+    gap: 80px;
+    align-items: center;
+}
+
+
+/* ---------------------------------------------------------
+   Portrait composition
+   --------------------------------------------------------- */
+
+.consultant-photo-wrap {
+    position: relative;
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Large fine gold circle behind the portrait */
+
+.consultant-photo-wrap::before {
+    content: "";
+    position: absolute;
+
+    width: 470px;
+    height: 470px;
+
+    border: 1px solid rgba(199, 170, 103, .48);
+    border-radius: 50%;
+
+    left: -55px;
+    top: 35px;
+
+    z-index: 0;
+}
+
+
+/* Soft olive organic shape */
+
+.consultant-photo-wrap::after {
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    background: var(--olive);
+
+    border-radius: 52% 48% 58% 42%;
+
+    right: -10px;
+    bottom: 5px;
+
+    opacity: .45;
+
+    z-index: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Portrait frame
+   --------------------------------------------------------- */
+
+.consultant-photo-frame {
+    position: relative;
+
+    width: min(365px, 78%);
+    height: 485px;
+
+    z-index: 2;
+
+    overflow: visible;
+
+    border-radius: 185px 185px 35px 35px;
+
+    background: var(--cream);
+
+    box-shadow:
+        0 30px 70px rgba(23, 56, 46, .16);
+
+    transform: translateX(15px);
+}
+
+
+/* The actual photograph */
+
+.consultant-photo {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    border-radius: inherit;
+
+    border: 8px solid rgba(251, 250, 245, .92);
+
+    box-shadow:
+        0 0 0 1px rgba(23, 56, 46, .08);
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+}
+
+
+/* Very subtle lift on desktop */
+
+@media (min-width: 901px) {
+
+    .consultant-photo-frame:hover .consultant-photo {
+        transform: translateY(-5px);
+        box-shadow:
+            0 25px 60px rgba(23, 56, 46, .18),
+            0 0 0 1px rgba(199, 170, 103, .18);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Decorative botanical line
+   --------------------------------------------------------- */
+
+.consultant-photo-frame::after {
+    content: "";
+
+    position: absolute;
+
+    width: 145px;
+    height: 210px;
+
+    right: -70px;
+    top: 85px;
+
+    border-right: 1px solid rgba(199, 170, 103, .65);
+    border-top: 1px solid rgba(199, 170, 103, .65);
+
+    border-radius: 0 100% 0 0;
+
+    transform: rotate(18deg);
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   Tablet
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .consultant-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .consultant-photo-wrap {
+        min-height: 510px;
+    }
+
+    .consultant-photo-wrap::before {
+        width: 430px;
+        height: 430px;
+
+        left: 50%;
+        top: 20px;
+
+        transform: translateX(-62%);
+    }
+
+    .consultant-photo-frame {
+        width: min(350px, 72vw);
+        height: 455px;
+
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 620px) {
+
+    .consultant-feature-grid {
+        gap: 35px;
+    }
+
+    .consultant-photo-wrap {
+        min-height: 445px;
+    }
+
+    .consultant-photo-wrap::before {
+        width: 350px;
+        height: 350px;
+
+        left: 50%;
+        top: 25px;
+
+        transform: translateX(-60%);
+    }
+
+    .consultant-photo-wrap::after {
+        width: 145px;
+        height: 145px;
+
+        right: -15px;
+        bottom: 15px;
+    }
+
+    .consultant-photo-frame {
+        width: min(300px, 76vw);
+        height: 405px;
+    }
+
+    .consultant-photo-frame::after {
+        width: 95px;
+        height: 145px;
+
+        right: -42px;
+        top: 75px;
+    }
+
+    .consultant-photo {
+        border-width: 6px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Very small phones
+   --------------------------------------------------------- */
+
+@media (max-width: 390px) {
+
+    .consultant-photo-wrap {
+        min-height: 410px;
+    }
+
+    .consultant-photo-frame {
+        width: 72vw;
+        height: 375px;
+    }
+
+    .consultant-photo-wrap::before {
+        width: 310px;
+        height: 310px;
+    }
+
+}
 
 
 .journal-filters {

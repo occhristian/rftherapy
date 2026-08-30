@@ -1,23 +1,157 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="RF Therapy — Relate & Flourish. A calm, confidential space to connect deeply and grow fully.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico"><link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png"><link rel="apple-touch-icon" href="assets/favicon-512.png"><link rel="stylesheet" href="assets/styles.css"><title>Client Stories · RF Therapy</title></head><body><div class="announce">A private space for reflection, connection & growth</div>
-<header class="site-header"><div class="wrap"><nav>
-<a class="brand" href="index.html"><img src="assets/rf-mark.png" alt="RF Therapy mark"><div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a>
-<div class="navlinks"><a href="about.html" class="">About</a><a href="sessions.html" class="">Sessions</a><a href="stories.html" class="active">Stories</a><a href="resources.html" class="">Resources</a><a href="faq.html" class="">FAQ</a><a href="contact.html" class="">Contact</a></div>
-<a class="nav-cta" href="booking.html">Book a Session</a><button class="menu" onclick="document.getElementById('mobilePanel').classList.toggle('open')" aria-label="Menu">☰</button>
-</nav></div><div class="mobile-panel" id="mobilePanel"><a href="about.html">About</a><a href="sessions.html">Sessions</a><a href="stories.html">Stories</a><a href="resources.html">Resources</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="booking.html"><strong>Book a Session →</strong></a></div></header>
-<main>
-<section class="page-hero"><div class="wrap"><div class="kicker">Client stories</div><h1>Small shifts can change the way a life feels.</h1><p>Stories can offer recognition and hope. Here, they are shared carefully and only with appropriate permission.</p></div></section>
-<section class="soft"><div class="wrap"><div class="stories"><div class="testimonial"><p>“I came in thinking I needed answers. What I really needed was a place where I could finally hear myself think.”</p><small>Former client · shared with permission</small></div><div class="testimonial"><p>“The biggest change was not becoming a different person. It was learning to relate to myself with more honesty and kindness.”</p><small>Former client · shared with permission</small></div><div class="testimonial"><p>“I learned that a boundary can be an act of care, not a punishment.”</p><small>Former client · shared with permission</small></div><div class="testimonial"><p>“The room felt safe enough for me to say what I had been avoiding.”</p><small>Former client · shared with permission</small></div></div></div></section>
-<section><div class="wrap split"><div><div class="kicker">Ethics of sharing</div><h2>People before content.</h2></div><div class="bodycopy"><p>Client stories should never be treated as marketing material first. Before publishing any story, RF Therapy should obtain clear, informed permission and agree exactly what may be shared.</p><p>Identifying details should be removed or altered where appropriate. The practitioner should also explain where and how the story will appear, and follow applicable professional and privacy obligations.</p><a class="btn primary" href="contact.html">Ask about sharing a story</a></div></div></section>
-</main><footer class="footer"><div class="wrap footer-grid">
-<div><a class="brand" href="index.html"><img src="assets/rf-mark.png" alt="" style="width:46px;height:46px"><div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a><p style="max-width:340px">A calm, confidential space to connect deeply, understand yourself more fully, and grow with intention.</p></div>
-<div><h3>Explore</h3><p><a href="about.html">About</a></p><p><a href="sessions.html">Sessions</a></p><p><a href="stories.html">Client Stories</a></p><p><a href="resources.html">Resources</a></p></div>
-<div><h3>Begin</h3><p><a href="booking.html">Book a Session</a></p><p><a href="contact.html">Contact</a></p><p><a href="https://wa.me/2348144134768">WhatsApp</a></p><p><a href="https://rftherapy.online">rftherapy.online</a></p></div>
-</div><div class="wrap bottom"><span>© 2026 RF Therapy. All rights reserved.</span><span>Connect Deeply, Grow Fully.</span></div></footer>
-<div class="toast" id="toast"></div>
-<script>
-function notify(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5500)}
-</script><script>document.querySelectorAll('#mobilePanel a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobilePanel').classList.remove('open')));</script></body></html>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="RF Therapy — Relate & Flourish. A calm, confidential space to connect deeply and grow fully."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png" />
+        <link rel="apple-touch-icon" href="assets/favicon-512.png" />
+        <link rel="stylesheet" href="assets/styles.css" />
+        <title>Client Stories · RF Therapy</title>
+    </head>
+    <body>
+        <div class="announce">A private space for reflection, connection & growth</div>
+        <header class="site-header">
+            <div class="wrap">
+                <nav>
+                    <a class="brand" href="index.html"
+                        ><img src="assets/rf-mark.png" alt="RF Therapy mark" />
+                        <div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a
+                    >
+                    <div class="navlinks">
+                        <a href="about.html" class="">About</a><a href="sessions.html" class="">Sessions</a
+                        ><a href="stories.html" class="active">Stories</a><a href="resources.html" class="">Resources</a
+                        ><a href="faq.html" class="">FAQ</a><a href="contact.html" class="">Contact</a>
+                    </div>
+                    <a class="nav-cta" href="booking.html">Book a Session</a
+                    ><button
+                        class="menu"
+                        onclick="document.getElementById('mobilePanel').classList.toggle('open')"
+                        aria-label="Menu"
+                    >
+                        ☰
+                    </button>
+                </nav>
+            </div>
+            <div class="mobile-panel" id="mobilePanel">
+                <a href="about.html">About</a><a href="sessions.html">Sessions</a><a href="stories.html">Stories</a
+                ><a href="resources.html">Resources</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a
+                ><a href="booking.html"><strong>Book a Session →</strong></a>
+            </div>
+        </header>
+        <main>
+            <section class="page-hero">
+                <div class="wrap">
+                    <div class="kicker">Client stories</div>
+                    <h1>Small shifts can change the way a life feels.</h1>
+                    <p>
+                        Stories can offer recognition and hope. Here, they are shared carefully and only with
+                        appropriate permission.
+                    </p>
+                </div>
+            </section>
+            <section class="soft">
+                <div class="wrap">
+                    <div class="stories">
+                        <div class="testimonial">
+                            <p>
+                                “I came in thinking I needed answers. What I really needed was a place where I could
+                                finally hear myself think.”
+                            </p>
+                            <small>Former client · shared with permission</small>
+                        </div>
+                        <div class="testimonial">
+                            <p>
+                                “The biggest change was not becoming a different person. It was learning to relate to
+                                myself with more honesty and kindness.”
+                            </p>
+                            <small>Former client · shared with permission</small>
+                        </div>
+                        <div class="testimonial">
+                            <p>“I learned that a boundary can be an act of care, not a punishment.”</p>
+                            <small>Former client · shared with permission</small>
+                        </div>
+                        <div class="testimonial">
+                            <p>“The room felt safe enough for me to say what I had been avoiding.”</p>
+                            <small>Former client · shared with permission</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="wrap split">
+                    <div>
+                        <div class="kicker">Ethics of sharing</div>
+                        <h2>People before content.</h2>
+                    </div>
+                    <div class="bodycopy">
+                        <p>
+                            Client stories are never treated as marketing material. Before publishing any
+                            story, RF Therapy endeavors to obtain clear, informed permission and an agreement of what exactly we are permitted to share.
+                        </p>
+                        <p>
+                            If you think that we have shared your story without your express permission, please <a style="font-weight: bold;color:#122d26;" href="contact.html">contact us</a> to request a takedown.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="wrap footer-grid">
+                <div>
+                    <a class="brand" href="index.html"
+                        ><img src="assets/rf-mark.png" alt="" style="width: 46px; height: 46px" />
+                        <div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a
+                    >
+                    <p style="max-width: 340px">
+                        A calm, confidential space to connect deeply, understand yourself more fully, and grow with
+                        intention.
+                    </p>
+                </div>
+                <div>
+                    <h3>Explore</h3>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="sessions.html">Sessions</a></p>
+                    <p><a href="stories.html">Client Stories</a></p>
+                    <p><a href="resources.html">Resources</a></p>
+                </div>
+                <div>
+                    <h3>Begin</h3>
+                    <p><a href="booking.html">Book a Session</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                    <p><a href="https://wa.me/2348144134768">WhatsApp</a></p>
+                    <p><a href="https://rftherapy.online">rftherapy.online</a></p>
+                </div>
+            </div>
+            <div class="wrap bottom">
+                <span>© 2026 RF Therapy. All rights reserved.</span><span>Connect Deeply, Grow Fully.</span>
+            </div>
+        </footer>
+        <div class="toast" id="toast"></div>
+        <script>
+            function notify(msg) {
+                const t = document.getElementById("toast");
+                t.textContent = msg;
+                t.classList.add("show");
+                setTimeout(() => t.classList.remove("show"), 5500);
+            }
+        </script>
+        <script>
+            document
+                .querySelectorAll("#mobilePanel a")
+                .forEach((a) =>
+                    a.addEventListener("click", () => document.getElementById("mobilePanel").classList.remove("open"))
+                );
+        </script>
+    </body>
+</html>
