@@ -60,61 +60,59 @@ section{padding:108px 0}.soft{background:#e9ecdc}.dark{background:var(--forest);
 @media(max-width:560px){section{padding:80px 0}.hero h1{font-size:58px}.hero-orb{width:330px}.process{grid-template-columns:1fr}.story-panel{padding:35px}.story-panel .bigquote{font-size:29px}.page-hero{padding:75px 0}.brand-copy{font-size:14px}.brand img{width:40px;height:40px}}
 
 
-/* RF THERAPY — premium navigation and responsive refinement */
+/* RF THERAPY — navigation system */
 :root{
  --serif:"Cormorant Garamond", Georgia, serif;
  --sans:"DM Sans", Inter, ui-sans-serif, system-ui, sans-serif;
 }
-.site-header{z-index:100}
-.nav{position:relative;height:84px;min-width:0}
-.brand{flex:0 0 auto;position:relative;z-index:3}
-.brand img{width:48px;height:48px}
-.brand-copy{font-size:18px;letter-spacing:.14em;line-height:.9}
-.brand-copy small{font-size:9px;letter-spacing:.22em;margin-top:5px}
-.navlinks{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;gap:30px;white-space:nowrap;font-family:var(--serif);font-size:15px;letter-spacing:.045em;color:#46554e}
-.navlinks a{position:relative;padding:8px 0;transition:color .2s ease}
-.navlinks a:after{content:"";position:absolute;left:50%;bottom:0;width:0;height:1px;background:var(--gold);transform:translateX(-50%);transition:width .25s ease}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(251,250,245,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(23,56,46,.07)}
+.site-header .wrap{width:min(1280px,94%)}
+.nav{position:relative;display:grid;grid-template-columns:minmax(250px,1fr) auto minmax(170px,1fr);align-items:center;gap:28px;height:84px;min-width:0}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;justify-self:start;position:relative;z-index:3}
+.brand img{width:48px;height:48px;object-fit:contain;flex:0 0 auto}
+.brand-copy{font-family:var(--serif);font-size:18px;line-height:.92;letter-spacing:.14em;white-space:nowrap}
+.brand-copy small{display:block;font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.22em;color:var(--muted);margin-top:5px}
+.navlinks{display:flex;align-items:center;justify-content:center;gap:29px;white-space:nowrap;font-family:var(--serif);font-size:15px;line-height:1;letter-spacing:.045em;color:#46554e;justify-self:center}
+.navlinks a{position:relative;padding:9px 0;transition:color .2s ease}
+.navlinks a:after{content:"";position:absolute;left:50%;bottom:1px;width:0;height:1px;background:var(--gold);transform:translateX(-50%);transition:width .25s ease}
+.navlinks a:hover,.navlinks a.active{color:var(--forest)}
 .navlinks a:hover:after,.navlinks a.active:after{width:70%}
-.nav-cta,.btn{font-family:var(--sans)}
-.nav-cta{margin-left:auto;position:relative;z-index:3;padding:14px 22px;font-size:11px}
-.menu{position:relative;z-index:4}
-.mobile-panel{font-family:var(--serif);font-size:18px;letter-spacing:.03em}
-.mobile-panel a{font-size:17px}
-.mobile-panel strong{font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.nav-cta{justify-self:end;position:relative;z-index:3;font-family:var(--sans);padding:14px 22px!important;font-size:11px!important;white-space:nowrap}
+.menu{display:none;border:0;background:transparent;color:var(--forest);cursor:pointer}
+.mobile-panel{display:none}
 
-/* More editorial luxury without sacrificing readability */
+/* Editorial luxury, kept readable */
 .hero h1,.section-head h2,.booking h2,.page-hero h1,.resource-hero h1,.story-panel .bigquote,.value h3,.card h3,.resource h3,.step h3,.testimonial p,.faq summary,.contact-card h3,.footer h3{font-kerning:normal;text-wrap:balance}
 .section-head h2,.page-hero h1,.resource-hero h1{letter-spacing:-.025em}
 .kicker,.eyebrow,.num,.tag{font-family:var(--sans);font-weight:500}
 
-@media(max-width:1050px) and (min-width:901px){
- .wrap{width:min(94%,1160px)}
+@media(max-width:1120px) and (min-width:901px){
+ .site-header .wrap{width:95%}
+ .nav{grid-template-columns:minmax(225px,1fr) auto minmax(155px,1fr);gap:16px}
  .navlinks{gap:19px;font-size:14px}
- .nav-cta{padding:12px 17px}
+ .nav-cta{padding:12px 16px!important}
  .brand-copy{font-size:16px}
 }
 @media(max-width:900px){
- .nav{height:72px}
+ nav{height:72px;display:flex;justify-content:space-between;gap:15px}
  .navlinks,.nav-cta{display:none}
  .brand img{width:43px;height:43px}
  .brand-copy{font-size:16px}
  .brand-copy small{font-size:8px}
- .menu{display:block;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;font-size:0}
- .menu:before{content:"";display:block;width:16px;height:1px;background:var(--forest);margin:0 auto 5px;box-shadow:0 5px 0 var(--forest)}
- .mobile-panel{top:72px;padding:14px 5%;box-shadow:0 18px 35px rgba(23,56,46,.09)}
+ .menu{display:flex;place-items:center;font-size:0;justify-self:end;position:relative;z-index:4}
+ .menu:before{content:"";display:block;width:16px;height:1px;background:var(--forest);box-shadow:0 5px 0 var(--forest);transition:.2s}
+ .mobile-panel{position:absolute;top:72px;left:0;right:0;background:rgba(251,250,245,.98);border-bottom:1px solid var(--line);padding:14px 5%;box-shadow:0 18px 35px rgba(23,56,46,.09);font-family:var(--serif);font-size:18px;letter-spacing:.03em}
  .mobile-panel.open{display:grid;gap:0}
- .mobile-panel a{padding:15px 4px}
- .mobile-panel a:last-child{margin-top:8px;border:1px solid var(--forest);border-radius:999px;text-align:center;padding:13px}
- .hero{min-height:auto;padding:78px 0 70px}
+ .mobile-panel a{padding:15px 4px;border-bottom:1px solid var(--line);font-size:17px}
+ .mobile-panel a:last-child{margin-top:8px;border:1px solid var(--forest);border-radius:999px;text-align:center;padding:13px;font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
  .hero-grid,.split,.booking,.contact-grid{grid-template-columns:1fr;gap:42px}
  .hero-visual{min-height:400px;order:2}
- .hero-orb{width:min(430px,82vw)}
  .values,.cards,.resource-grid{grid-template-columns:1fr 1fr}
  .process{grid-template-columns:1fr 1fr}
  .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
- .wrap{width:90%}
+ .site-header .wrap{width:90%}
  section{padding:78px 0}
  .announce{font-size:8px;letter-spacing:.16em;padding:8px 12px}
  .hero{padding:65px 0 60px}
@@ -130,7 +128,9 @@ section{padding:108px 0}.soft{background:#e9ecdc}.dark{background:var(--forest);
  .contact-card{padding:30px}
  .bottom{display:block}.bottom span{display:block;margin-top:8px}
 }
-@media(max-width:390px){.brand-copy{font-size:14px}.brand-copy small{font-size:7px}.brand img{width:39px;height:39px}.nav{height:66px}.mobile-panel{top:66px}}
+@media(max-width:390px){
+ .brand-copy{font-size:14px}.brand-copy small{font-size:7px}.brand img{width:39px;height:39px}.nav{height:66px}.mobile-panel{top:66px}
+}
 
 .consultant-feature{background:var(--paper);overflow:hidden}
 .consultant-feature-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:80px;align-items:center}
@@ -142,3 +142,36 @@ section{padding:108px 0}.soft{background:#e9ecdc}.dark{background:var(--forest);
 .consultant-photo-placeholder div{position:relative;text-align:center;color:var(--forest);padding:25px}.consultant-photo-placeholder span{display:block;font-family:var(--serif);font-size:27px;letter-spacing:.06em}.consultant-photo-placeholder small{display:block;font-size:10px;letter-spacing:.08em;color:#66736c;margin-top:8px}
 @media(max-width:900px){.consultant-feature-grid{grid-template-columns:1fr;gap:35px}.consultant-photo-wrap{min-height:470px}.consultant-photo-placeholder{height:430px}}
 @media(max-width:620px){.consultant-photo-wrap{min-height:410px}.consultant-photo-placeholder{height:390px;width:72%}.consultant-photo-wrap:before{width:320px;height:320px;left:-50px;top:35px}}
+
+
+
+.journal-filters {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.journal-filters button {
+    background: #e9ecdc;
+    color: #1b2924;
+    padding: 15px;
+    border: none;
+    margin-right: 1px;
+    cursor: pointer;
+}
+
+.journal-filters button:hover {
+    background: #1b2924;
+    color: #e9ecdc;
+}
+
+.journal-filters button:nth-of-type(4){
+    border-top-right-radius: 20px;
+}
+
+.journal-filters button:nth-of-type(1){
+    border-top-left-radius: 20px;
+}
+
+.resource-grid .resource {
+    border-top-left-radius: 0;
+}

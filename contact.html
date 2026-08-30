@@ -2,7 +2,7 @@
 <meta name="description" content="RF Therapy — Relate & Flourish. A calm, confidential space to connect deeply and grow fully.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css"><title>Contact · RF Therapy</title></head><body><div class="announce">A private space for reflection, connection & growth</div>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico"><link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png"><link rel="apple-touch-icon" href="assets/favicon-512.png"><link rel="stylesheet" href="assets/styles.css"><title>Contact · RF Therapy</title></head><body><div class="announce">A private space for reflection, connection & growth</div>
 <header class="site-header"><div class="wrap"><nav>
 <a class="brand" href="index.html"><img src="assets/rf-mark.png" alt="RF Therapy mark"><div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a>
 <div class="navlinks"><a href="about.html" class="">About</a><a href="sessions.html" class="">Sessions</a><a href="stories.html" class="">Stories</a><a href="resources.html" class="">Resources</a><a href="faq.html" class="">FAQ</a><a href="contact.html" class="active">Contact</a></div>
@@ -20,4 +20,4 @@
 <div class="toast" id="toast"></div>
 <script>
 function notify(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5500)}
-</script></body></html>
+</script><script>document.querySelectorAll('#mobilePanel a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobilePanel').classList.remove('open')));</script></body></html>
