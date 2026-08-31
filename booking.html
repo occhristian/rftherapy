@@ -34,48 +34,44 @@
 <script>
 function notify(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5500)}
 </script><script>document.querySelectorAll('#mobilePanel a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobilePanel').classList.remove('open')));</script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LeMBaItAAAAAHxs9Y8Ho7uLzEzR4ABk1cY_Vqao"></script>
 <script>
 document.getElementById('rf-session-form').addEventListener('submit', function (event) {
   event.preventDefault();
 
   const form = event.target;
   const submitButton = form.querySelector('button[type="submit"]');
+  const formData = new FormData(form);
+
   submitButton.disabled = true;
   submitButton.textContent = 'Sending...';
 
-  grecaptcha.ready(function () {
-    grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function (token) {
-      const formData = new FormData(form);
-      formData.append('g-recaptcha-response', token);
-
-      fetch('https://formspree.io/f/mppzqvlz', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      })
-        .then((response) => {
-          if (response.ok) {
-            notify('Thank you — your session request has been sent. We will be in touch shortly to confirm.');
-            form.reset();
-          } else {
-            return response.json().then((data) => {
-              const errorMessage = (data && data.errors)
-                ? data.errors.map((err) => err.message).join(', ')
-                : 'Something went wrong. Please try again or reach out directly.';
-              notify(errorMessage);
-            });
-          }
-        })
-        .catch(() => {
-          notify('We could not send your request. Please check your connection and try again.');
-        })
-        .finally(() => {
-          submitButton.disabled = false;
-          submitButton.textContent = 'Request Session';
+  fetch('https://formspree.io/f/mppzqvlz', {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+    .then((response) => {
+      if (response.ok) {
+        notify('Thank you — your session request has been sent. We will be in touch shortly to confirm.');
+        form.reset();
+      } else {
+        return response.json().then((data) => {
+          const errorMessage = (data && data.errors)
+            ? data.errors.map((err) => err.message).join(', ')
+            : 'Something went wrong. Please try again or reach out directly.';
+          notify(errorMessage);
         });
+      }
+    })
+    .catch(() => {
+      notify('We could not send your request. Please check your connection and try again.');
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Request Session';
     });
-  });
 });
 </script>
 </body></html>
