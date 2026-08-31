@@ -11,13 +11,20 @@
 <main>
 <section class="page-hero"><div class="wrap"><div class="kicker">Book a session</div><h1>Make room for the conversation.</h1><p>Request a preferred date and tell us only what you are comfortable sharing. We will follow up to confirm availability.</p></div></section>
 <section><div class="wrap"><div class="booking"><div><div class="kicker" style="color:#aebdb2">A private beginning</div><h2>Start gently.</h2><p>You can request a session here or begin with a private WhatsApp conversation if that feels easier.</p><a class="btn whatsapp" href="https://wa.me/2348144134768" target="_blank" rel="noopener">Chat on WhatsApp ↗</a><p style="font-size:11px;margin-top:24px">Please do not use this form for emergencies or situations requiring immediate intervention.</p></div>
-<form class="form" onsubmit="event.preventDefault();notify('Your session request has been recorded in this demo. Connect the form to a secure booking backend before launch.');this.reset()">
-<label>Full name<input required name="name" placeholder="Your name"></label><label>Email<input required type="email" name="email" placeholder="you@example.com"></label>
-<label>Phone<input name="phone" placeholder="+234 ..."></label><label>Session type<select name="type"><option>Individual Session</option><option>Relationship Work</option><option>Guidance & Reflection</option></select></label>
-<label>Preferred date<input required type="date" name="date"></label><label>Preferred time<select name="time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
-<label class="full">What would you like support with?<textarea name="message" placeholder="You do not need to share anything you are not ready to share."></textarea></label>
-<div class="full"><button type="submit">Request Session</button><div class="consent">By submitting, you agree that RF Therapy may use the information provided to respond to this request. Connect this form to a secure booking system before collecting live client data.</div></div>
-</form></div></div></section>
+<form class="form" id="rf-session-form">
+  <label>Full name<input required name="name" placeholder="Your name"></label>
+  <label>Email<input required type="email" name="email" placeholder="you@example.com"></label>
+  <label>Phone<input name="phone" placeholder="+234 ..."></label>
+  <label>Session type<select name="type"><option>Individual Session</option><option>Relationship Work</option><option>Guidance & Reflection</option></select></label>
+  <label>Preferred date<input required type="date" name="date"></label>
+  <label>Preferred time<select name="time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
+  <label class="full">What would you like support with?<textarea name="message" placeholder="You do not need to share anything you are not ready to share."></textarea></label>
+  <div class="full">
+    <button type="submit">Request Session</button>
+    <div class="consent">By submitting, you agree that RF Therapy may use the information provided to respond to this request.</div>
+  </div>
+</form>
+</div></div></section>
 </main><footer class="footer"><div class="wrap footer-grid">
 <div><a class="brand" href="index.html"><img src="assets/rf-mark.png" alt="" style="width:46px;height:46px"><div class="brand-copy">RF THERAPY<small>RELATE AND FLOURISH</small></div></a><p style="max-width:340px">A calm, confidential space to connect deeply, understand yourself more fully, and grow with intention.</p></div>
 <div><h3>Explore</h3><p><a href="about.html">About</a></p><p><a href="sessions.html">Sessions</a></p><p><a href="stories.html">Client Stories</a></p><p><a href="resources.html">Resources</a></p></div>
@@ -26,4 +33,45 @@
 <div class="toast" id="toast"></div>
 <script>
 function notify(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5500)}
-</script><script>document.querySelectorAll('#mobilePanel a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobilePanel').classList.remove('open')));</script></body></html>
+</script><script>document.querySelectorAll('#mobilePanel a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobilePanel').classList.remove('open')));</script>
+<script>
+document.getElementById('rf-session-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const formData = new FormData(form);
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending...';
+
+  fetch('https://formspree.io/f/mppzqvlz', {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+    .then((response) => {
+      if (response.ok) {
+        notify('Thank you — your session request has been sent. We will be in touch shortly to confirm.');
+        form.reset();
+      } else {
+        return response.json().then((data) => {
+          const errorMessage = (data && data.errors)
+            ? data.errors.map((err) => err.message).join(', ')
+            : 'Something went wrong. Please try again or reach out directly.';
+          notify(errorMessage);
+        });
+      }
+    })
+    .catch(() => {
+      notify('We could not send your request. Please check your connection and try again.');
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Request Session';
+    });
+});
+</script>
+</body></html>
